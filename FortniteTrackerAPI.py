@@ -1,0 +1,2 @@
+from FortniteTrackerAPIClass import FortniteTrackerAPI
+
