@@ -1,25 +1,28 @@
 import requests
 import json
 
-class Input:
-    answer = ''
-    def GetInput(self, question):
-        self.answer = input(question)
-        return self.answer    
-
 class FortniteTrackerAPI : 
-    def getUserInput(self, question, Input) :
-        answer = Input.GetInput(question)
-        return answer 
-
+    Platform = ''
+    Username = ''
     url = ''
-    def SetUrl(self, Platform = '', Username = '' ) :
-        Platform = self.getUserInput( 'What platform? (pc, xbl, psn)', Input)
-        Username = self.getUserInput('What is the Epic Username?', Input)
+
+    def __init__ (self, platform = '', username = ''):
+        if platform == '':
+            self.Platform = input('What platform? (pc, xbl, psn)')
+        else:
+            self.Platform = platform
+
+        if username == '':
+            self.Username = input('What is the Epic Username?')
+        else:
+            self.Username = username
+
+    def SetUrl(self) :
         self.url = 'https://api.fortnitetracker.com/v1/profile/'
-        self.url = self.url + Platform
+        self.url = self.url + self.Platform
         self.url = self.url + '/'
-        self.url = self.url + Username
+        self.url = self.url + self.Username
+        return self.url
     
     def GetUrl(self) :
         return self.url
