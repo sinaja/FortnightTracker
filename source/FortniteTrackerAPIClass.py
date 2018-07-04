@@ -7,13 +7,19 @@ class FortniteTrackerAPI :
     url = ''
 
     def __init__ (self, platform = '', username = ''):
-        if platform == '':
-            self.Platform = input('What platform? (pc, xbl, psn)')
+        while True:
+            if platform == '' :
+                self.Platform = input('What platform? (pc, xbl, psn)').lower()
         else:
             self.Platform = platform
 
-        if username == '':
-            self.Username = input('What is the Epic Username?')
+            if self.Platform == 'pc' or self.Platform == 'xbl' or self.Platform == 'psn' :
+                break
+            else :
+                print ('Invalid platform')
+
+        if username == '' :
+            self.Username = input('What is the Epic Username?').lower()
         else:
             self.Username = username
 
