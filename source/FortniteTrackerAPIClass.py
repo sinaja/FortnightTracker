@@ -33,12 +33,12 @@ class FortniteTrackerAPI :
     def GetUrl(self) :
         return self.url
         
-    def GetStats(self) :
-        self.SetUrl()
+    def GetStats(self, file = 'FortniteTrackerStatistics.txt') :
+        f = open(file , 'w+')
+        FortniteTrackerAPI.SetUrl(FortniteTrackerAPI)
         r = requests.get(self.url, headers = {'TRN-Api-Key': '56483f66-82ed-4d24-9484-49ac38089be1'})
-        stats = json.loads(r.text)
-        return stats
-#       https://api.fortnitetracker.com/v1/profile/{Platform}/{Username} , headers = {'TRN-Api-Key': '56483f66-82ed-4d24-9484-49ac38089be1'})
+        f.write(r.text)
+        f.close
 
 # print (stats['epicUserHandle'])
 # print (stats['epicUserHandle'], 'has', stats['stats']['p2']['top1']['valueInt'], 'solo wins.')
