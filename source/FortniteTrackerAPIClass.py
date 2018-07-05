@@ -66,6 +66,9 @@ class FortniteTrackerAPI :
         print (Username)
         return Username
 
+    def DelStats(self, file = 'FortniteTrackerStatistics.txt') :
+        os.remove(file)
+
     def main(self) :
         self.SetUrl()
         self.GetStats()
