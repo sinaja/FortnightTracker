@@ -8,4 +8,4 @@ class Test_FortniteTrackerAPI(unittest.TestCase) :
         self.assertEqual(myTestFortniteTrackerAPI.SetUrl(), 'https://api.fortnitetracker.com/v1/profile/xbl/AarashJ')
         
     def test_GetUsername(self) :
-        self.assertEqual(myTestFortniteTrackerAPI.GetUsername('./tests/TestStatistics.txt'), 'AarashJ')
+        self.assertEqual(myTestFortniteTrackerAPI.GetUsername("../tests/TestStatistics.txt"), 'AarashJ')
