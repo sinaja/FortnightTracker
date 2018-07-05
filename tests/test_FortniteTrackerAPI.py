@@ -9,3 +9,7 @@ class Test_FortniteTrackerAPI(unittest.TestCase) :
         
     def test_GetUsername(self) :
         self.assertEqual(myTestFortniteTrackerAPI.GetUsername('./tests/TestStatistics.txt'), 'AarashJ')
+
+    def test_ValidateStats(self) :
+        self.assertEqual(myTestFortniteTrackerAPI.ValidateStats('./tests/TestStatistics.txt'), True)
+        self.assertEqual(myTestFortniteTrackerAPI.ValidateStats('./tests/TestStatistics2.txt'), False)
