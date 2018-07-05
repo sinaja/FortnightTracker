@@ -60,6 +60,9 @@ class FortniteTrackerAPI :
             valid = False
         else :
             valid = True 
+        tf1.close()
+        tf2.close()
+        f.close()
         return valid
 
     def GetUsername(self, file = 'FortniteTrackerStatistics.txt') :
