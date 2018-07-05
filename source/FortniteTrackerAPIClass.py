@@ -82,7 +82,7 @@ class FortniteTrackerAPI :
         else :
             self.DelStats()
             sys.exit()
-        
+
 
 # https://api.fortnitetracker.com/v1/profile/{Platform}/{Username} , headers = {'TRN-Api-Key': '56483f66-82ed-4d24-9484-49ac38089be1'})
 # print (stats['epicUserHandle'], 'has', stats['stats']['p2']['top1']['valueInt'], 'solo wins.')
