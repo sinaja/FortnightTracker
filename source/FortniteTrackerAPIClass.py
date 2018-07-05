@@ -39,7 +39,24 @@ class FortniteTrackerAPI :
         FortniteTrackerAPI.SetUrl(FortniteTrackerAPI)
         r = requests.get(self.url, headers = {'TRN-Api-Key': '56483f66-82ed-4d24-9484-49ac38089be1'})
         f.write(r.text)
-        f.close
+
+    def ValidateStats(self, file = 'FortniteTrackerStatistics.txt') :
+        tf1 = open('./tests/TestInvalidStats1.txt')
+        tf2 = open('./tests/TestInvalidStats2.txt')
+        f = open(file)
+        stats = f.read()
+        stats = ast.literal_eval(stats)
+        TestStats1 = tf1.read()
+        TestStats1 = ast.literal_eval(TestStats1)
+        TestStats2 = tf2.read()
+        TestStats2 = ast.literal_eval(TestStats2)
+        if stats == TestStats1 or stats == TestStats2 :
+            print ('Invalid Username')
+            time.sleep(0.7)
+            valid = False
+        else :
+            valid = True 
+        return valid
 
     def GetUsername(self, file = 'FortniteTrackerStatistics.txt') :
         f = open(file)
