@@ -62,7 +62,9 @@ class FortniteTrackerAPI :
         f = open(file)
         stats = f.read()
         stats = ast.literal_eval(stats)
-        return (stats['epicUserHandle'])
+        Username = stats['epicUserHandle']
+        print (Username)
+        return Username
 
     # def ValidateStats(self, file = 'FortniteTrackerStatistics.txt') :
         
