@@ -66,7 +66,15 @@ class FortniteTrackerAPI :
         print (Username)
         return Username
 
-    # def ValidateStats(self, file = 'FortniteTrackerStatistics.txt') :
+    def main(self) :
+        self.SetUrl()
+        self.GetStats()
+        if self.ValidateStats() == True :
+            self.GetUsername()
+            self.DelStats()
+        else :
+            self.DelStats()
+            sys.exit()
         
 
 # https://api.fortnitetracker.com/v1/profile/{Platform}/{Username} , headers = {'TRN-Api-Key': '56483f66-82ed-4d24-9484-49ac38089be1'})
