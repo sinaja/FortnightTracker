@@ -138,6 +138,11 @@ class FortniteTrackerAPI :
             self.DelFiles()
             sys.exit()
 
+    # s.write(str(stats['stats']['p2']['top1']['valueInt'])+ '\n')
+    # s.write(str(stats['stats']['p2']['top10']['valueInt'] + stats['stats']['p2']['top25']['valueInt'])+ '\n')
+    # self.soloKills = stats['stats']['p2']['kd']['valueDec'], '\n'
+    # self.soloWinRatio = stats['stats']['p2']['winRatio']['valueDec'], '%', '\n'
+    # self.soloMatches = stats['stats']['p2']['matches']['valueInt'], '\n'
 
 # https://api.fortnitetracker.com/v1/profile/{Platform}/{Username} , headers = {'TRN-Api-Key': '56483f66-82ed-4d24-9484-49ac38089be1'})
 # print (stats['epicUserHandle'], 'has', stats['stats']['p2']['top1']['valueInt'], 'solo wins.')
