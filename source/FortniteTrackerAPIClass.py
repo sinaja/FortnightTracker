@@ -133,8 +133,9 @@ class FortniteTrackerAPI :
             print ('Solo K/D: ', self.soloKd)
             self.GetSoloKills
             print ('Solo Kills: ', self.soloKills)
+            self.DelFiles()
         else :
-            self.DelStats()
+            self.DelFiles()
             sys.exit()
 
 
