@@ -11,5 +11,5 @@ class Test_FortniteTrackerAPI(unittest.TestCase) :
         self.assertEqual(myTestFortniteTrackerAPI.GetUsername('./tests/TestStatistics.txt'), 'AarashJ')
 
     def test_ValidateStats(self) :
-        self.assertEqual(myTestFortniteTrackerAPI.ValidateStats('./tests/TestStatistics.txt'), True)
-        self.assertEqual(myTestFortniteTrackerAPI.ValidateStats('./tests/TestStatistics2.txt'), False)
+    def test_GetSoloWins(self) :
+        self.assertEqual(int(source.FortniteTrackerAPIClass.FortniteTrackerAPI.GetSoloWins(source.FortniteTrackerAPIClass.FortniteTrackerAPI.GetSoloWins, './tests/TestStatistics.txt')), 110)
