@@ -7,6 +7,7 @@ import requests
 
 
 class FortniteTrackerAPI : 
+    usedFiles = []
     Platform = ''
     Username = ''
     url = ''
@@ -39,6 +40,7 @@ class FortniteTrackerAPI :
         return self.url
         
     def GetStats(self, file = 'FortniteTrackerStatistics.txt') :
+        self.usedFiles.append(file)
         f = open(file , 'w+')
         FortniteTrackerAPI.SetUrl(FortniteTrackerAPI)
         r = requests.get(self.url, headers = {'TRN-Api-Key': '56483f66-82ed-4d24-9484-49ac38089be1'})
@@ -73,8 +75,12 @@ class FortniteTrackerAPI :
         print (Username)
         return Username
 
-    def DelStats(self, file = 'FortniteTrackerStatistics.txt') :
-        os.remove(file)
+    def DelFiles(self) :
+        noOfFiles = len(self.usedFiles)
+        for i in range (0, noOfFiles) :
+            os.remove(self.usedFiles[i])
+            time.sleep(0.3)
+            print ('Deleted', noOfFiles, 'file(s)')
 
     def main(self) :
         self.SetUrl()
