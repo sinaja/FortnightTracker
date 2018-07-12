@@ -11,6 +11,12 @@ class FortniteTrackerAPI :
     Platform = ''
     Username = ''
     url = ''
+    soloWins = 0
+    soloTops = ''
+    soloKills = ''
+    soloKd = ''
+    soloWinRatio = ''
+    soloMatches = ''
 
     def __init__ (self, platform = '', username = ''):
         while True:
@@ -82,12 +88,51 @@ class FortniteTrackerAPI :
             time.sleep(0.3)
             print ('Deleted', noOfFiles, 'file(s)')
 
+    def GetSoloWins(self, file = 'FortniteTrackerStatistics.txt') :
+        f = open(file)
+        stats = f.read()
+        stats = ast.literal_eval(stats)
+        self.soloWins = stats['stats']['p2']['top1']['valueInt']
+        f.close
+        return self.soloWins
+
+    def GetSoloTops(self, file = 'FortniteTrackerStatistics.txt') :
+        f = open(file)
+        stats = f.read()
+        stats = ast.literal_eval(stats)
+        self.soloTops = stats['stats']['p2']['top10']['valueInt'] + stats['stats']['p2']['top25']['valueInt']
+        f.close
+        return self.soloTops
+
+    def GetSoloKills(self, file = 'FortniteTrackerStatistics.txt') :
+        f = open(file)
+        stats = f.read()
+        stats = ast.literal_eval(stats)
+        self.soloKills = stats['stats']['p2']['kills']['value']
+        f.close
+        return self.soloKills
+
+    def GetSoloKd(self, file = 'FortniteTrackerStatistics.txt') :
+        f = open(file)
+        stats = f.read()
+        stats = ast.literal_eval(stats)
+        self.soloKd = stats['stats']['p2']['kd']['valueDec']
+        f.close
+        return self.soloKd
+
     def main(self) :
         self.SetUrl()
         self.GetStats()
         if self.ValidateStats() == True :
             self.GetUsername()
-            self.DelStats()
+            self.GetSoloWins()
+            print ('Solo Wins: ', self.soloWins)
+            self.GetSoloTops()
+            print ('Solo Top10/25: ', self.soloTops)
+            self.GetSoloKd()
+            print ('Solo K/D: ', self.soloKd)
+            self.GetSoloKills
+            print ('Solo Kills: ', self.soloKills)
         else :
             self.DelStats()
             sys.exit()
