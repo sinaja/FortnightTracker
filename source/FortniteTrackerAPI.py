@@ -1,3 +1,4 @@
-from source.FortniteTrackerAPIClass import FortniteTrackerAPI
+#from .context import source
+from FortniteTrackerAPIClass import FortniteTrackerAPI
 myAPI = FortniteTrackerAPI()
 myAPI.main()
