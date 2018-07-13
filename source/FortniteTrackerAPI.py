@@ -1,3 +1,3 @@
-from FortniteTrackerAPIClass import FortniteTrackerAPI  # shows as error however works fine
+from source.FortniteTrackerAPIClass import FortniteTrackerAPI
 myAPI = FortniteTrackerAPI()
 myAPI.main()
